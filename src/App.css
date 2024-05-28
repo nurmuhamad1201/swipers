@@ -1,0 +1,31 @@
+
+
+.swiper {
+    
+
+  }
+  .swiper-slide {
+    
+    background: transparent;
+    
+    text-align: center;
+  }
+  .swiper-slide:nth-child(2) {
+    background: transparent;
+  }
+  .swiper-slide:nth-child(3) {
+    background: transparent;
+  }
+  .swiper-slide:nth-child(4) {
+    background: transparent;
+  }
+  .swiper-slide:nth-child(5) {
+    background: transparent;
+  }
+  .swiper-slide:nth-child(6) {
+    background: transparent;
+  }
+  .swiper-slide:nth-child(7) {
+    background: transparent;
+  }
+  
