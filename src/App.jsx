@@ -39,12 +39,20 @@ import { Pagination } from 'swiper/modules';
 import "swiper/css";
 
 import "./App.css";
+import { useTranslation } from "react-i18next"
 
 
 const App = () => {
   useEffect(() => {
     Aos.init({duration: 3000});
     } , [])
+    
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = (language) => {
+      i18n.changeLanguage(language);
+      localStorage.setItem('i18nextLng', language);
+    };
   return (
     <div  className=" dark:bg-black ">
 
@@ -52,21 +60,25 @@ const App = () => {
       <img  src={Header} alt="header" className="w-[90%] h-[50px] "/>
       <Switcher />
      </header>
- 
+
+     <button onClick={() => changeLanguage('en')} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Eng</button>
+  <button onClick={() => changeLanguage('ru')} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Russian</button>
+  <button onClick={() => changeLanguage('tj')}class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Tajik</button>
+    
 
 
     <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine"  className=" flex justify-between  xs:flex-wrap lg:flex-wrap items-center px-[50px]">
       <div className="">
         <p >WEB 3 NON-FUNGIBLE TOKENS</p>
-        <h1 className="text-[50px]   pr-[100px] font-sans font-[700] dark:text-white xs:text-[20px] xs:text-red-300">Unlock Unique Digital Ownership with NFTs</h1>
-        <p className=" dark:text-white font-[500] text-[20px]  pr-[100px] ">Experience the Revolutionary World of Non-Fungible Tokens on Our Exclusive NFT Marketplace</p>
+        <h1 className="text-[50px] pr-[100px] font-sans font-[700] dark:text-white xs:text-[20px] xs:text-red-300">{t('text1')  }</h1>
+        <p className=" dark:text-white font-[500] text-[20px]  pr-[100px] ">{t("text2")}</p>
       </div>
       <img src={untitled} alt="untitled" className="w-[50%] lg:w-[98%] h-[500px]"/>
     </div>
 
 
 
-     <section className="px-[50px]">
+     <section data-aos="zoom-out-left" className="px-[50px]">
       <h1 className=" font-[700] text-[40px]">Trending Art 🔥</h1>
 
     <div className=" py-[50px]">
@@ -212,7 +224,7 @@ const App = () => {
 
 
 
-<section className=" bg-[#191919]">
+<section  className=" bg-[#191919]">
 
 
 <Swiper
@@ -271,7 +283,8 @@ const App = () => {
 
 
 
-<section className=" px-[200px]">
+<section data-aos="fade-up"
+     data-aos-duration="3000" className=" px-[200px]">
 <div class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
   <h1 class="text-2xl font-bold dark:text-white">Explore</h1>
   <select name="" id="" class="block w-40 p-2 bg-gray-50 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -465,7 +478,7 @@ const App = () => {
 </section>
 
 
-<section className="bg-[#151515] py-[100px] w-[80%] m-auto mt-[120px] rounded-xl flex items-center justify-between p-8 text-white">
+<section  className="bg-[#151515] py-[100px] w-[80%] m-auto mt-[120px] rounded-xl flex items-center justify-between p-8 text-white">
   <img src={round} alt="Round" className="w-24 h-auto absolute left-[80px] mb-[120px]" />
   <div className="text-center">
     <h1 className="text-2xl font-bold mb-4">Try our App Mobile NFT</h1>
